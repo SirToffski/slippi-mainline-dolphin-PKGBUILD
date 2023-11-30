@@ -17,7 +17,7 @@ depends=(
         'libsfml-network.so' 'libsfml-system.so' 'libswscale.so' 'libudev.so'
         'libusb-1.0.so' 'corrosion'
 )
-makedepends=('cmake' 'git' 'ninja' 'python')
+makedepends=('cmake' 'git' 'ninja' 'python' 'cargo')
 optdepends=('pulseaudio: PulseAudio backend')
 #options=('!lto')
 source=(
