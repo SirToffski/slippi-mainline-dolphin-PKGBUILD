@@ -19,7 +19,7 @@ depends=(
 )
 makedepends=('cmake' 'git' 'ninja' 'python' 'cargo')
 optdepends=('pulseaudio: PulseAudio backend')
-#options=('!lto')
+options=('!lto')
 source=(
         "$pkgname::git+https://github.com/project-slippi/dolphin.git"
         "$pkgname-implot::git+https://github.com/epezent/implot.git"
