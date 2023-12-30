@@ -63,9 +63,9 @@ source=(
         "$pkgname-corrosion::git+https://github.com/corrosion-rs/corrosion.git"
         "$pkgname-slippi-rust-extensions::git+https://github.com/project-slippi/slippi-rust-extensions.git"
         "$pkgname-spirv-cross::git+https://github.com/KhronosGroup/SPIRV-Cross.git"
-        'patch_to_build.patch'
-        'fix_more_libs.patch'
-        'fix_vulkan_gcc13.patch'
+        '001_patch_to_build.patch'
+        '002_fix_more_libs.patch'
+        '003_fix_vulkan_gcc13.patch'
 )
 sha512sums=('SKIP'
             'SKIP'
@@ -87,8 +87,8 @@ prepare() {
         if [ -d 'build/' ]; then rm -rf 'build/'; fi
         mkdir 'build/'
 
-        patch --forward -p1 < "$srcdir/patch_to_build.patch"
-        patch --forward -p1 < "$srcdir/fix_more_libs.patch"
+        patch --forward -p1 < "$srcdir/001_patch_to_build.patch"
+        patch --forward -p1 < "$srcdir/002_fix_more_libs.patch"
 
 
 
@@ -109,7 +109,7 @@ prepare() {
                 git -c protocol.file.allow=always submodule update "$_path"
         done
 
-        patch --forward -p1 < "$srcdir/fix_vulkan_gcc13.patch"
+        patch --forward -p1 < "$srcdir/003_fix_vulkan_gcc13.patch"
 
 }
 
