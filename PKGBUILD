@@ -51,7 +51,7 @@ depends=(
 	'zlib-ng'
 	'zstd'
 )
-makedepends=('cmake' 'git' 'ninja' 'python' 'qt5-base' 'qt5-svg' 'miniupnpc')
+makedepends=('cmake' 'git' 'ninja' 'python' 'qt5-base' 'qt5-svg' 'miniupnpc' 'cargo')
 optdepends=('pulseaudio: PulseAudio backend')
 options=('!lto')
 source=(
@@ -132,7 +132,7 @@ build() {
 package() {
         pkgdesc="$pkgdesc$_pkgdescappend"
         provides=("$_mainpkgname")
-        conflicts=("$_mainpkgname")
+        conflicts=("$_mainpkgname" "slippi-online-git")
 
         cd "$srcdir/$_sourcedirectory/"
         make DESTDIR="$pkgdir" -C 'build/' install
