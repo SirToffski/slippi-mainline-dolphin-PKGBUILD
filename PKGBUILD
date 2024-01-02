@@ -136,11 +136,11 @@ package() {
 
         cd "$srcdir/$_sourcedirectory/"
         make DESTDIR="$pkgdir" -C 'build/' install
-        mkdir -p "$pkgdir/usr/local/bin/$_mainpkgname"
-        mv "$pkgdir/usr/local/bin/$_dolphinemu" "$pkgdir/usr/local/bin/$_mainpkgname/$_mainpkgname"
-        cp -r "Data/Sys/" "$pkgdir/usr/local/bin/$_mainpkgname/"
+        #mkdir -p "$pkgdir/usr/local/bin/$_mainpkgname"
+        mv "$pkgdir/usr/local/bin/$_dolphinemu" "$pkgdir/usr/local/bin/$_mainpkgname"
+        cp -r "Data/Sys/" "$pkgdir/usr/local/bin/"
         rm -r "$pkgdir/usr/local/share/man/"
-        install -Dm644 'Data/51-usb-device.rules' "$pkgdir/usr/lib/udev/rules.d/51-usb-device.rules"
+        #install -Dm644 'Data/51-usb-device.rules' "$pkgdir/usr/lib/udev/rules.d/51-usb-device.rules"
         install -Dm644 'build/cargo/build/x86_64-unknown-linux-gnu/release/libslippi_rust_extensions.so' "$pkgdir/usr/lib/libslippi_rust_extensions.so"
         rm -rf "$pkgdir/usr/include"
         rm -rf "$pkgdir/usr/lib/libdiscord-rpc.a"
